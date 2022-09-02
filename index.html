@@ -56,7 +56,6 @@
             let addr = null;
             try {
                 const accounts = await window.klaytn.enable();
-                console.log("accounts", accounts);
                 addr = accounts[0];
             } catch (err) {
                 console.log("accounts err", err);
@@ -78,7 +77,6 @@
                 }),
             });
             const resData = await res.json();
-            console.log("resData", resData);
 
             document.getElementById("nft_count").innerText = resData.count;
             document.getElementById("btn_discord_connect").disabled = false;
@@ -90,7 +88,6 @@
             const code = urlParams.get("code");
             if (code === null) return;
 
-            console.log("code", code);
             const CLIENT_ID = "1014445709401018410";
             const CLIENT_SECRET = "XsBok3vp_HK0AoLBid_IDvbRjQR_6JSM";
             const REDIRECT_URL = "http://localhost:53134";
@@ -110,10 +107,7 @@
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
             });
-            console.log("oauthResult", oauthResult);
-
             const oauthData = await oauthResult.json();
-            console.log("oauthData", oauthData);
 
             const userResult = await fetch("https://discord.com/api/users/@me", {
                 headers: {
@@ -122,7 +116,6 @@
             });
 
             const userData = await userResult.json();
-            console.log("userData", userData);
             discord_user_id = userData.id;
         };
     </script>

@@ -1,6 +1,5 @@
 const { EmbedBuilder  } = require('discord.js');
-const ROLE_ID = "1014744335188762684";
-const CH_VERIFY = "1014768575145316392";
+const { ROLE_ID, CH_VERIFY} = require('./config.js');
 const EMOJI = "✅";
 
 async function ready(client) {
@@ -13,7 +12,6 @@ async function ready(client) {
             "https://discord.com/api/oauth2/authorize?client_id=1014445709401018410&redirect_uri=http%3A%2F%2Flocalhost%3A53134&response_type=code&scope=identify"
         );
         ch.send({ embeds: [embed] }).then((msg) => {
-        console.log("verify send ok");
         msg.react(EMOJI);
     });
 }
